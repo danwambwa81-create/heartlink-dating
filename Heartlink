@@ -1,2 +1,4 @@
 # heartlink-dating
 HeartLink is a modern dating app that helps people connect, chat, build meaningful relationships, and discover compatible matches through a secure, user-friendly, and AI-powered platform.
+<!-- 2. Fix the redirect to point to your local file -->
+    <input type="hidden" name="redirect" value="index.html">
