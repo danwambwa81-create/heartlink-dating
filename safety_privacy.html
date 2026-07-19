@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Safety &amp; Privacy - HeartLink</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#bc004d",
+                    "on-surface": "#1a1c1c",
+                    "inverse-surface": "#2f3130",
+                    "primary-container": "#e0115f",
+                    "primary": "#b5004a",
+                    "surface": "#faf9f8",
+                    "outline": "#8f6f73",
+                    "on-tertiary-fixed-variant": "#474646",
+                    "on-primary-fixed-variant": "#900039",
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#f1f0f0",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#3f0015",
+                    "on-primary-container": "#fff8f8",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#e4bdc2",
+                    "on-secondary-container": "#7a3c46",
+                    "on-background": "#1a1c1c",
+                    "on-secondary-fixed": "#3a0915",
+                    "secondary-container": "#feaab6",
+                    "background": "#faf9f8",
+                    "surface-bright": "#faf9f8",
+                    "surface-variant": "#e3e2e1",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#eeeeed",
+                    "on-secondary-fixed-variant": "#70343e",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#5b5a5a",
+                    "tertiary-fixed": "#e5e2e1",
+                    "surface-container-highest": "#e3e2e1",
+                    "inverse-primary": "#ffb2be",
+                    "secondary": "#8c4b55",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#ffb2be",
+                    "primary-fixed": "#ffd9de",
+                    "secondary-fixed": "#ffd9dd",
+                    "tertiary-container": "#747373",
+                    "surface-dim": "#dadad9",
+                    "surface-container-high": "#e9e8e7",
+                    "on-tertiary-container": "#fdfaf9",
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "surface-container-low": "#f4f3f2",
+                    "secondary-fixed-dim": "#ffb2bc",
+                    "on-surface-variant": "#5b3f44"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "12px",
+                    "stack-lg": "40px",
+                    "container-padding": "24px",
+                    "base": "8px",
+                    "gutter": "16px",
+                    "stack-md": "24px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(228, 189, 194, 0.3);
+        }
+        
+        .rose-shadow {
+            box-shadow: 0 10px 30px rgba(183, 110, 121, 0.1);
+        }
+
+        .premium-gradient {
+            background: linear-gradient(135deg, #b5004a 0%, #e0115f 100%);
+        }
+
+        .gold-shimmer {
+            background: linear-gradient(90deg, #d4af37 0%, #f9f295 50%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            to { background-position: 200% center; }
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .active-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        input:checked + .toggle-dot {
+            transform: translateX(100%);
+            background-color: #ffffff;
+        }
+        input:checked + .toggle-dot + .toggle-bg {
+            background-color: #b5004a;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md antialiased mb-24">
+<!-- Header (Shared Component: TopAppBar logic) -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform duration-200 text-on-surface-variant">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</button>
+<h1 class="text-headline-md font-headline-md text-on-surface">Safety &amp; Privacy</h1>
+</div>
+<button class="active:scale-95 transition-transform duration-200 text-primary">
+<span class="material-symbols-outlined">shield_with_heart</span>
+</button>
+</nav>
+<!-- Main Content Canvas -->
+<main class="mt-20 px-container-padding space-y-stack-lg">
+<!-- Safety Center: Safety Toolkit -->
+<section>
+<div class="mb-4">
+<h2 class="text-label-md font-label-md text-on-surface-variant uppercase tracking-widest">Safety Center</h2>
+</div>
+<div class="glass-panel rose-shadow rounded-xl overflow-hidden p-6 relative">
+<div class="flex items-start justify-between mb-6">
+<div>
+<h3 class="text-headline-md font-headline-md mb-1 text-on-surface">Safety Toolkit</h3>
+<p class="text-body-md text-on-surface-variant opacity-80 leading-relaxed">Your well-being is our priority. Access tools to stay safe on HeartLink.</p>
+</div>
+<div class="bg-primary/10 p-3 rounded-full">
+<span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<button class="flex items-center gap-4 p-4 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors text-left">
+<span class="material-symbols-outlined text-primary">flag</span>
+<span class="flex-1 font-medium">Reporting Guide</span>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</button>
+<button class="flex items-center gap-4 p-4 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors text-left">
+<span class="material-symbols-outlined text-primary">tips_and_updates</span>
+<span class="flex-1 font-medium">Safety Tips</span>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</button>
+<button class="flex items-center gap-4 p-4 rounded-lg bg-error-container/20 hover:bg-error-container/30 transition-colors text-left border border-error/10">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">emergency_home</span>
+<span class="flex-1 font-medium text-error">Emergency Resources</span>
+<span class="material-symbols-outlined text-error">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Account Security -->
+<section class="space-y-4">
+<h2 class="text-label-md font-label-md text-on-surface-variant uppercase tracking-widest">Account Security</h2>
+<div class="glass-panel rounded-xl divide-y divide-outline-variant/20 overflow-hidden">
+<!-- Two Factor -->
+<div class="flex items-center justify-between p-5">
+<div class="flex flex-col">
+<span class="font-semibold">Two-Factor Authentication</span>
+<span class="text-sm text-on-surface-variant">Add an extra layer of security</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="toggle-bg w-11 h-6 bg-surface-container-highest rounded-full transition-colors"></div>
+<div class="toggle-dot absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform"></div>
+</label>
+</div>
+<!-- Phone Verif -->
+<button class="flex items-center justify-between w-full p-5 hover:bg-surface-container-low transition-colors">
+<div class="flex flex-col text-left">
+<span class="font-semibold">Phone Number Verification</span>
+<span class="text-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> Verified
+                        </span>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</button>
+<!-- Login Devices -->
+<button class="flex items-center justify-between w-full p-5 hover:bg-surface-container-low transition-colors">
+<div class="flex flex-col text-left">
+<span class="font-semibold">Login Devices</span>
+<span class="text-sm text-on-surface-variant">Manage your active sessions</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Privacy Controls -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="text-label-md font-label-md text-on-surface-variant uppercase tracking-widest">Privacy Controls</h2>
+<span class="text-[10px] font-bold gold-shimmer uppercase tracking-tighter border border-[#d4af37]/30 px-2 py-0.5 rounded-full">Gold Premium</span>
+</div>
+<div class="glass-panel rounded-xl divide-y divide-outline-variant/20 overflow-hidden">
+<!-- Incognito -->
+<div class="flex items-center justify-between p-5 bg-[#faf9f8] relative overflow-hidden group">
+<div class="flex flex-col relative z-10">
+<span class="font-semibold flex items-center gap-2">
+                            Incognito Mode
+                            <span class="material-symbols-outlined text-[#d4af37] text-sm" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</span>
+<span class="text-sm text-on-surface-variant">Only people you like can see you</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer z-10">
+<input class="sr-only peer" type="checkbox"/>
+<div class="toggle-bg w-11 h-6 bg-surface-container-highest rounded-full transition-colors"></div>
+<div class="toggle-dot absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform"></div>
+</label>
+</div>
+<!-- Distance -->
+<div class="flex items-center justify-between p-5">
+<div class="flex flex-col">
+<span class="font-semibold">Show My Distance</span>
+<span class="text-sm text-on-surface-variant">Visible in your profile card</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="toggle-bg w-11 h-6 bg-surface-container-highest rounded-full transition-colors"></div>
+<div class="toggle-dot absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform"></div>
+</label>
+</div>
+<!-- Active Status -->
+<div class="flex items-center justify-between p-5">
+<div class="flex flex-col">
+<span class="font-semibold">Active Status</span>
+<span class="text-sm text-on-surface-variant">Show when you were last online</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="toggle-bg w-11 h-6 bg-surface-container-highest rounded-full transition-colors"></div>
+<div class="toggle-dot absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Visibility -->
+<section class="space-y-4">
+<h2 class="text-label-md font-label-md text-on-surface-variant uppercase tracking-widest">Visibility</h2>
+<div class="glass-panel rounded-xl p-2 space-y-1">
+<button class="flex items-center justify-between w-full p-4 rounded-lg bg-primary/5 border border-primary/10">
+<span class="font-semibold text-primary">Everyone</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">radio_button_checked</span>
+</button>
+<button class="flex items-center justify-between w-full p-4 rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="font-medium text-on-surface-variant">Only people I liked</span>
+<span class="material-symbols-outlined text-outline-variant">radio_button_unchecked</span>
+</button>
+<button class="flex items-center justify-between w-full p-4 rounded-lg hover:bg-surface-container-low transition-colors">
+<span class="font-medium text-on-surface-variant">Verified members only</span>
+<span class="material-symbols-outlined text-outline-variant">radio_button_unchecked</span>
+</button>
+</div>
+</section>
+<!-- Interactions -->
+<section class="space-y-4">
+<h2 class="text-label-md font-label-md text-on-surface-variant uppercase tracking-widest">Interactions</h2>
+<div class="glass-panel rounded-xl divide-y divide-outline-variant/20 overflow-hidden">
+<button class="flex items-center justify-between w-full p-5 hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">block</span>
+<span class="font-semibold">Block List</span>
+</div>
+<span class="text-label-md text-outline">12 people</span>
+</button>
+<button class="flex items-center justify-between w-full p-5 hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">mail</span>
+<span class="font-semibold">Manage Message Requests</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Data & Legal -->
+<section class="space-y-4 pb-12">
+<h2 class="text-label-md font-label-md text-on-surface-variant uppercase tracking-widest">Data &amp; Legal</h2>
+<div class="glass-panel rounded-xl divide-y divide-outline-variant/20 overflow-hidden">
+<button class="flex items-center justify-between w-full p-5 hover:bg-surface-container-low transition-colors">
+<span class="font-medium">Download My Data</span>
+<span class="material-symbols-outlined text-outline-variant">download</span>
+</button>
+<button class="flex items-center justify-between w-full p-5 hover:bg-surface-container-low transition-colors text-on-surface-variant">
+<span class="font-medium">Privacy Policy</span>
+<span class="material-symbols-outlined text-outline-variant">open_in_new</span>
+</button>
+<button class="flex items-center justify-between w-full p-5 hover:bg-surface-container-low transition-colors text-on-surface-variant">
+<span class="font-medium">Terms of Service</span>
+<span class="material-symbols-outlined text-outline-variant">open_in_new</span>
+</button>
+</div>
+<div class="flex flex-col items-center justify-center pt-8 text-center space-y-2">
+<span class="text-primary font-headline-md italic">HeartLink</span>
+<span class="text-xs text-on-surface-variant opacity-60">Version 4.2.1-Gold</span>
+<button class="text-error font-semibold text-sm pt-4 active:opacity-50 transition-opacity">Delete Account</button>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation (Shared Component) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 py-4 bg-surface/80 backdrop-blur-xl border-t border-outline-variant/30 shadow-[0_-10px_30px_rgba(183,110,121,0.15)] rounded-t-xl">
+<button class="flex items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined text-2xl">explore</span>
+</button>
+<button class="flex items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+</button>
+<button class="flex items-center justify-center text-on-surface-variant/60 hover:text-primary transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined text-2xl">chat_bubble</span>
+</button>
+<!-- Active Tab: Profile (Person) as Settings is part of the Profile hierarchy -->
+<button class="flex items-center justify-center text-primary scale-110 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">person</span>
+</button>
+</nav>
+<script>
+        // Micro-interaction for toggles
+        document.querySelectorAll('input[type="checkbox"]').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                const dot = this.nextElementSibling.nextElementSibling;
+                const bg = this.nextElementSibling;
+                if (this.checked) {
+                    dot.style.transform = 'translateX(100%)';
+                    bg.style.backgroundColor = '#b5004a';
+                } else {
+                    dot.style.transform = 'translateX(0)';
+                    bg.style.backgroundColor = '#e3e2e1';
+                }
+            });
+        });
+
+        // Add haptic feedback simulation
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('touchstart', () => {
+                if (window.navigator.vibrate) window.navigator.vibrate(5);
+            });
+        });
+    </script>
+</body></html>

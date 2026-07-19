@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HeartLink - Profile Creation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .floating-label-input:focus-within label,
+        .floating-label-input input:not(:placeholder-shown) + label,
+        .floating-label-input textarea:not(:placeholder-shown) + label {
+            transform: translateY(-1.5rem) scale(0.85);
+            color: #b5004a;
+        }
+        .glass-panel {
+            background: rgba(250, 249, 248, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .ruby-gradient {
+            background: linear-gradient(135deg, #b5004a 0%, #e0115f 100%);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#b5004a",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#eeeeed",
+                        "on-secondary-container": "#7a3c46",
+                        "tertiary-fixed": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#474646",
+                        "secondary-fixed": "#ffd9dd",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f4f3f2",
+                        "on-error": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "surface-tint": "#bc004d",
+                        "on-surface-variant": "#5b3f44",
+                        "on-tertiary-container": "#fdfaf9",
+                        "tertiary-container": "#747373",
+                        "error": "#ba1a1a",
+                        "outline": "#8f6f73",
+                        "surface-variant": "#e3e2e1",
+                        "on-secondary-fixed": "#3a0915",
+                        "on-primary-container": "#fff8f8",
+                        "background": "#faf9f8",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2f3130",
+                        "surface-container-high": "#e9e8e7",
+                        "surface": "#faf9f8",
+                        "error-container": "#ffdad6",
+                        "secondary": "#8c4b55",
+                        "on-primary-fixed": "#3f0015",
+                        "surface-bright": "#faf9f8",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "on-secondary-fixed-variant": "#70343e",
+                        "surface-dim": "#dadad9",
+                        "on-primary-fixed-variant": "#900039",
+                        "secondary-container": "#feaab6",
+                        "outline-variant": "#e4bdc2",
+                        "surface-container-highest": "#e3e2e1",
+                        "inverse-primary": "#ffb2be",
+                        "primary-container": "#e0115f",
+                        "inverse-on-surface": "#f1f0f0",
+                        "tertiary": "#5b5a5a",
+                        "on-surface": "#1a1c1c",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#ffd9de",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#ffb2be",
+                        "secondary-fixed-dim": "#ffb2bc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "12px",
+                        "gutter": "16px",
+                        "container-padding": "24px",
+                        "stack-lg": "40px",
+                        "stack-md": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen selection:bg-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 transition-all">
+<button class="text-primary hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile italic text-primary">HeartLink</h1>
+<button class="text-primary hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+</header>
+<main class="pt-24 pb-32 px-container-padding max-w-xl mx-auto min-h-screen flex flex-col">
+<!-- Progress Indicator -->
+<div class="mb-stack-lg flex items-center gap-2">
+<div class="h-1 flex-1 ruby-gradient rounded-full"></div>
+<div class="h-1 flex-1 ruby-gradient rounded-full"></div>
+<div class="h-1 flex-1 bg-surface-variant rounded-full"></div>
+<div class="h-1 flex-1 bg-surface-variant rounded-full"></div>
+</div>
+<!-- Headline Section -->
+<section class="mb-stack-lg animate-fade-in">
+<h2 class="text-display-lg font-display-lg text-on-surface mb-2">Your story starts here</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant">Let's build your profile with the essentials. This information helps us find connections that truly resonate with your lifestyle.</p>
+</section>
+<!-- Form Section -->
+<form class="space-y-stack-md animate-fade-in" style="animation-delay: 0.1s;">
+<!-- Name Input -->
+<div class="relative floating-label-input">
+<input class="block w-full px-0 py-4 bg-transparent border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-colors text-body-lg font-body-lg" id="name" placeholder=" " required="" type="text"/>
+<label class="absolute left-0 top-4 text-on-surface-variant text-body-lg transition-all pointer-events-none origin-left" for="name">Preferred Name</label>
+</div>
+<!-- DOB & Gender Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<div class="relative floating-label-input">
+<input class="block w-full px-0 py-4 bg-transparent border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-colors text-body-lg font-body-lg" id="dob" placeholder=" " required="" type="date"/>
+<label class="absolute left-0 top-4 text-on-surface-variant text-body-lg transition-all pointer-events-none origin-left" for="dob">Date of Birth</label>
+</div>
+<div class="relative floating-label-input">
+<select class="block w-full px-0 py-4 bg-transparent border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-colors text-body-lg font-body-lg appearance-none" id="gender" required="">
+<option disabled="" hidden="" selected="" value=""></option>
+<option value="woman">Woman</option>
+<option value="man">Man</option>
+<option value="non-binary">Non-binary</option>
+<option value="prefer-not-to-say">Prefer not to say</option>
+</select>
+<label class="absolute left-0 top-4 text-on-surface-variant text-body-lg transition-all pointer-events-none origin-left" for="gender">Gender</label>
+</div>
+</div>
+<!-- Occupation Input -->
+<div class="relative floating-label-input">
+<input class="block w-full px-0 py-4 bg-transparent border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-colors text-body-lg font-body-lg" id="occupation" placeholder=" " type="text"/>
+<label class="absolute left-0 top-4 text-on-surface-variant text-body-lg transition-all pointer-events-none origin-left" for="occupation">Occupation</label>
+</div>
+<!-- Bio Section -->
+<div class="relative floating-label-input pt-4">
+<textarea class="block w-full px-0 py-4 bg-transparent border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-colors text-body-md font-body-md resize-none" id="bio" maxlength="200" oninput="updateCharCount(this)" placeholder=" " rows="3"></textarea>
+<label class="absolute left-0 top-8 text-on-surface-variant text-body-lg transition-all pointer-events-none origin-left" for="bio">Tell your story in a few words...</label>
+<div class="flex justify-end mt-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant/60" id="charCount">0 / 200</span>
+</div>
+</div>
+</form>
+<!-- Spacer for push-to-bottom layout -->
+<div class="flex-grow"></div>
+<!-- Next Button -->
+<div class="mt-stack-lg animate-fade-in" style="animation-delay: 0.2s;">
+<button class="ruby-gradient w-full py-4 rounded-xl text-on-primary font-label-md text-label-md uppercase tracking-widest shadow-[0_10px_30px_rgba(183,110,121,0.25)] hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group">
+<span>Next Step</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<p class="text-center mt-4 text-label-sm font-label-sm text-on-surface-variant/40">Step 2 of 4 • Basic Essentials</p>
+</div>
+</main>
+<!-- BottomNavBar (Hidden on this transactional screen as per Mandate) -->
+<!-- The mandate suppresses Nav Shell on task-focused sub-pages like profile creation -->
+<script>
+        function updateCharCount(textarea) {
+            const count = textarea.value.length;
+            document.getElementById('charCount').textContent = `${count} / 200`;
+            
+            if (count > 180) {
+                document.getElementById('charCount').classList.add('text-primary');
+            } else {
+                document.getElementById('charCount').classList.remove('text-primary');
+            }
+        }
+
+        // Simple validation check for the next button
+        document.querySelector('button').addEventListener('click', (e) => {
+            const inputs = document.querySelectorAll('input[required], select[required]');
+            let valid = true;
+            inputs.forEach(input => {
+                if (!input.value) {
+                    input.classList.add('border-error');
+                    valid = false;
+                } else {
+                    input.classList.remove('border-error');
+                }
+            });
+            
+            if (valid) {
+                // Logic to navigate to Step 3 would go here
+                console.log('Form is valid. Proceeding to Step 3.');
+            }
+        });
+    </script>
+</body></html>

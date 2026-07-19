@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HeartLink | Profile Creation - Interests</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#b5004a",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#eeeeed",
+                    "on-secondary-container": "#7a3c46",
+                    "tertiary-fixed": "#e5e2e1",
+                    "on-tertiary-fixed-variant": "#474646",
+                    "secondary-fixed": "#ffd9dd",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#f4f3f2",
+                    "on-error": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "surface-tint": "#bc004d",
+                    "on-surface-variant": "#5b3f44",
+                    "on-tertiary-container": "#fdfaf9",
+                    "tertiary-container": "#747373",
+                    "error": "#ba1a1a",
+                    "outline": "#8f6f73",
+                    "surface-variant": "#e3e2e1",
+                    "on-secondary-fixed": "#3a0915",
+                    "on-primary-container": "#fff8f8",
+                    "background": "#faf9f8",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#2f3130",
+                    "surface-container-high": "#e9e8e7",
+                    "surface": "#faf9f8",
+                    "error-container": "#ffdad6",
+                    "secondary": "#8c4b55",
+                    "on-primary-fixed": "#3f0015",
+                    "surface-bright": "#faf9f8",
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "on-secondary-fixed-variant": "#70343e",
+                    "surface-dim": "#dadad9",
+                    "on-primary-fixed-variant": "#900039",
+                    "secondary-container": "#feaab6",
+                    "outline-variant": "#e4bdc2",
+                    "surface-container-highest": "#e3e2e1",
+                    "inverse-primary": "#ffb2be",
+                    "primary-container": "#e0115f",
+                    "inverse-on-surface": "#f1f0f0",
+                    "tertiary": "#5b5a5a",
+                    "on-surface": "#1a1c1c",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#ffd9de",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#ffb2be",
+                    "secondary-fixed-dim": "#ffb2bc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "12px",
+                    "gutter": "16px",
+                    "container-padding": "24px",
+                    "stack-lg": "40px",
+                    "stack-md": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .chip-active {
+            background: linear-gradient(135deg, #b5004a, #8c4b55);
+            color: white !important;
+            border-color: transparent !important;
+            box-shadow: 0 4px 12px rgba(181, 0, 74, 0.25);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(228, 189, 194, 0.3);
+        }
+        body {
+            background-color: #faf9f8;
+            background-image: radial-gradient(circle at 0% 0%, rgba(255, 217, 222, 0.4) 0%, transparent 50%),
+                              radial-gradient(circle at 100% 100%, rgba(228, 189, 194, 0.2) 0%, transparent 50%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface selection:bg-primary/10">
+<!-- Top Navigation Bar (Shared Component Strategy) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30">
+<button class="material-symbols-outlined text-primary active:scale-95 transition-transform">arrow_back</button>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile italic text-primary">HeartLink</h1>
+<div class="w-10 flex justify-end">
+<span class="text-label-md font-label-md text-primary">3/3</span>
+</div>
+</header>
+<main class="pt-24 pb-32 px-container-padding max-w-2xl mx-auto min-h-screen">
+<!-- Header Section -->
+<section class="mb-stack-lg text-center">
+<h2 class="text-headline-lg font-headline-lg text-on-surface mb-2">Refine Your Sphere</h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-md mx-auto">Select 5 or more interests to curate your social landscape with like-minded individuals.</p>
+</section>
+<!-- Progress Indicator -->
+<div class="flex gap-2 justify-center mb-stack-lg">
+<div class="h-1 w-12 rounded-full bg-primary/20"></div>
+<div class="h-1 w-12 rounded-full bg-primary/20"></div>
+<div class="h-1 w-12 rounded-full bg-primary"></div>
+</div>
+<!-- Interest Categories -->
+<div class="space-y-stack-lg">
+<!-- Category: Arts & Culture -->
+<div>
+<h3 class="text-label-md font-label-md uppercase tracking-widest text-outline mb-stack-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">palette</span>
+                    Arts &amp; Culture
+                </h3>
+<div class="flex flex-wrap gap-3">
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Fine Art</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Opera</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Contemporary Dance</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Symphony</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Literary Fiction</button>
+</div>
+</div>
+<!-- Category: Travel -->
+<div>
+<h3 class="text-label-md font-label-md uppercase tracking-widest text-outline mb-stack-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">travel_explore</span>
+                    Travel
+                </h3>
+<div class="flex flex-wrap gap-3">
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Boutique Hotels</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Off-grid Escapes</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Sailing</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Alpine Skiing</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Urban Exploration</button>
+</div>
+</div>
+<!-- Category: Wellness -->
+<div>
+<h3 class="text-label-md font-label-md uppercase tracking-widest text-outline mb-stack-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">spa</span>
+                    Wellness
+                </h3>
+<div class="flex flex-wrap gap-3">
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Mindfulness</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Biohacking</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Equestrian</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Yoga</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Tennis</button>
+</div>
+</div>
+<!-- Category: Gastronomy -->
+<div>
+<h3 class="text-label-md font-label-md uppercase tracking-widest text-outline mb-stack-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">restaurant</span>
+                    Gastronomy
+                </h3>
+<div class="flex flex-wrap gap-3">
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Michelin Dining</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Enology</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Farm-to-Table</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Mixology</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/50 text-body-md font-body-md text-secondary transition-all hover:border-primary/50 active:scale-95 glass-panel" onclick="toggleChip(this)">Artisanal Coffee</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Footer (Shared Component Strategy) -->
+<footer class="fixed bottom-0 left-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-t border-outline-variant/30 px-container-padding py-6 flex flex-col items-center gap-4">
+<div class="w-full max-w-md flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant" id="counter-text">0 Selected</span>
+<span class="text-label-sm font-label-sm text-primary" id="instruction-text">Select 5 more</span>
+</div>
+<button class="w-full max-w-md py-4 rounded-xl bg-surface-variant text-on-surface-variant font-label-md text-label-md transition-all duration-300 opacity-50 cursor-not-allowed" disabled="" id="finish-btn">
+            Finish
+        </button>
+</footer>
+<script>
+        let selectedCount = 0;
+        const finishBtn = document.getElementById('finish-btn');
+        const counterText = document.getElementById('counter-text');
+        const instructionText = document.getElementById('instruction-text');
+
+        function toggleChip(el) {
+            const isActive = el.classList.contains('chip-active');
+            
+            if (isActive) {
+                el.classList.remove('chip-active');
+                selectedCount--;
+            } else {
+                el.classList.add('chip-active');
+                selectedCount++;
+                
+                // Micro-interaction: tiny pop effect
+                el.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    el.style.transform = 'scale(1)';
+                }, 100);
+            }
+
+            updateUI();
+        }
+
+        function updateUI() {
+            counterText.innerText = `${selectedCount} Selected`;
+            
+            if (selectedCount >= 5) {
+                finishBtn.disabled = false;
+                finishBtn.classList.remove('bg-surface-variant', 'text-on-surface-variant', 'opacity-50', 'cursor-not-allowed');
+                finishBtn.classList.add('bg-primary', 'text-white', 'opacity-100', 'cursor-pointer', 'shadow-lg', 'shadow-primary/20');
+                finishBtn.style.background = 'linear-gradient(to right, #b5004a, #e0115f)';
+                instructionText.innerText = 'Ready to begin';
+                instructionText.classList.remove('text-primary');
+                instructionText.classList.add('text-on-surface-variant');
+            } else {
+                finishBtn.disabled = true;
+                finishBtn.classList.add('bg-surface-variant', 'text-on-surface-variant', 'opacity-50', 'cursor-not-allowed');
+                finishBtn.classList.remove('bg-primary', 'text-white', 'opacity-100', 'cursor-pointer', 'shadow-lg');
+                finishBtn.style.background = '';
+                instructionText.innerText = `Select ${5 - selectedCount} more`;
+                instructionText.classList.add('text-primary');
+                instructionText.classList.remove('text-on-surface-variant');
+            }
+        }
+
+        // Finish button interaction
+        finishBtn.addEventListener('click', () => {
+            if (!finishBtn.disabled) {
+                finishBtn.innerHTML = '<span class="flex items-center justify-center gap-2">Finalizing Your Profile... <div class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div></span>';
+                setTimeout(() => {
+                    alert('Profile complete. Welcome to the inner circle.');
+                }, 1500);
+            }
+        });
+    </script>
+</body></html>

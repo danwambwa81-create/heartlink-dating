@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HeartLink | Welcome</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#ffd9dd",
+                    "tertiary-fixed": "#e5e2e1",
+                    "on-primary-fixed": "#3f0015",
+                    "on-primary-fixed-variant": "#900039",
+                    "surface-variant": "#e3e2e1",
+                    "inverse-on-surface": "#f1f0f0",
+                    "surface-container-high": "#e9e8e7",
+                    "on-primary-container": "#fff8f8",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed-dim": "#ffb2be",
+                    "on-secondary-container": "#7a3c46",
+                    "inverse-primary": "#ffb2be",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#bc004d",
+                    "surface-container-low": "#f4f3f2",
+                    "on-surface-variant": "#5b3f44",
+                    "surface-container": "#eeeeed",
+                    "surface-container-highest": "#e3e2e1",
+                    "secondary-fixed-dim": "#ffb2bc",
+                    "on-secondary-fixed-variant": "#70343e",
+                    "on-error-container": "#93000a",
+                    "primary-container": "#e0115f",
+                    "tertiary": "#5b5a5a",
+                    "tertiary-container": "#747373",
+                    "outline": "#8f6f73",
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "inverse-surface": "#2f3130",
+                    "secondary": "#8c4b55",
+                    "surface-bright": "#faf9f8",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "surface": "#faf9f8",
+                    "outline-variant": "#e4bdc2",
+                    "on-surface": "#1a1c1c",
+                    "on-tertiary-fixed-variant": "#474646",
+                    "secondary-container": "#feaab6",
+                    "on-tertiary-container": "#fdfaf9",
+                    "background": "#faf9f8",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-background": "#1a1c1c",
+                    "on-secondary-fixed": "#3a0915",
+                    "primary": "#b5004a",
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "surface-dim": "#dadad9",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#ffd9de"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "12px",
+                    "stack-lg": "40px",
+                    "stack-md": "24px",
+                    "gutter": "16px",
+                    "base": "8px",
+                    "container-padding": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #faf9f8;
+            overflow-x: hidden;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(228, 189, 194, 0.3);
+        }
+
+        .rose-gold-gradient {
+            background: linear-gradient(135deg, #b5004a 0%, #feaab6 100%);
+        }
+
+        .ambient-shadow {
+            box-shadow: 0 30px 60px -12px rgba(183, 110, 121, 0.15);
+        }
+
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .mask-fade-bottom {
+            mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col min-h-screen text-on-surface">
+<!-- Subtle Background Element -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-secondary-fixed/20 blur-[120px]"></div>
+<div class="absolute bottom-[-5%] left-[-5%] w-[40%] h-[40%] rounded-full bg-primary-fixed/20 blur-[100px]"></div>
+</div>
+<!-- Main Content Wrapper -->
+<main class="relative z-10 flex flex-col items-center justify-between min-h-screen px-container-padding py-stack-lg max-w-md mx-auto w-full">
+<!-- Header / Logo Section -->
+<header class="w-full flex justify-center py-stack-md transition-all duration-700 opacity-0 transform translate-y-[-20px]" id="header-logo">
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile italic text-primary">HeartLink</h1>
+</header>
+<!-- Hero Illustration Area -->
+<div class="flex-1 w-full flex items-center justify-center relative my-stack-md">
+<div class="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden ambient-shadow floating transition-all duration-1000 opacity-0 scale-95" id="hero-card">
+<img class="w-full h-full object-cover" data-alt="A sophisticated and stylish couple in their late 20s sharing a tender moment in a sun-drenched, minimalist loft. The lighting is soft and golden, creating a dreamy and ethereal atmosphere. The scene is rendered in high-end editorial photography style with a muted color palette of pearl whites, soft rose golds, and warm neutrals, emphasizing luxury, trust, and intimate connection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGA-4joL3lX9qaS_Tav5pE9zqvwis2AWmZS2rVYOjGdR-IxEPHPXExzJMQ9OkubFFNDHG-mNDT5eH14RieKt9ybr9WPG0ePBDTWL4lexaiJd9Z1hDLD8SW3XZig4YRD7BehZBWghsdmRJ5z0G1BRPi0_oxAH6yDbAPfzN5D-EkBIjGV3s3IEDyjmMo5dC61RR637PSyuBL0NGuygTSSGH6V0QlbagLsHvKu1h62jSXCACOk6uhJ9UslhC2GPJaVuQzoR1oN-idCWE"/>
+<!-- Overlay Glass for Branding/Slogan -->
+<div class="absolute bottom-0 left-0 right-0 p-gutter glass-panel mask-fade-bottom">
+<p class="text-headline-md font-headline-md text-on-surface mb-1">Elegance in Connection</p>
+<p class="text-label-md font-label-md text-on-surface-variant">Curated matching for the discerning.</p>
+</div>
+</div>
+</div>
+<!-- Action / Onboarding Section -->
+<div class="w-full flex flex-col gap-stack-md mt-stack-md transition-all duration-1000 opacity-0 transform translate-y-[30px]" id="action-cluster">
+<!-- Primary CTA -->
+<button class="rose-gold-gradient text-on-primary py-4 rounded-xl font-label-md text-label-md shadow-lg active:scale-95 transition-all duration-200 uppercase tracking-widest">
+                Get Started
+            </button>
+<!-- Divider -->
+<div class="flex items-center gap-4 py-2">
+<div class="h-[1px] flex-1 bg-outline-variant/30"></div>
+<span class="text-label-sm font-label-sm text-on-surface-variant/60 uppercase">or join with</span>
+<div class="h-[1px] flex-1 bg-outline-variant/30"></div>
+</div>
+<!-- Social Login Options -->
+<div class="grid grid-cols-3 gap-gutter">
+<!-- Apple -->
+<button class="glass-panel py-3 rounded-xl flex items-center justify-center hover:bg-surface-container transition-colors active:scale-90">
+<img alt="Apple logo" class="w-5 h-5 opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQsuJYDPuACec0WeC21Ej1b4E_Z02zdUxAf6-PrZWOsF-VPlHF39_kLq-YzOwN7DUbqIpalqWtIDM-wsG990tXqakC6NZS7C26ozmC3_EsATPjmFXB6xZb0nZtsAdX-so6OEjzMWNu8b1oX440YZUpEBNagOlteo4OLKlYbjkDI2jXsMsdzk9M8U0g6WaB2eQjoTBgeCr2Nqu-5HWiCn6CvaG64PnbiNAPMTiDzyYDcvCK0AJuKM_1iuXUFGBXDbz05H7EEi4KvB0"/>
+</button>
+<!-- Google -->
+<button class="glass-panel py-3 rounded-xl flex items-center justify-center hover:bg-surface-container transition-colors active:scale-90">
+<img alt="Google logo" class="w-5 h-5 opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCogTmM6Kgc_VnMLS7BCP8HTIDvgFotCD_PAS04zteRuOcOgVKeTtfAFJGgi-I0LmOehMSExybzlhiyZMvPo3RqUFPfceGipr4ERYF7F1oUOoZl04idnJzogV3dH4i0e4EDIGHlqFv6XiKxVymLOYJnRjwO5AeVXStpjMxBaLphXHhKUUNoF0gy0lx4m2pbVZbd8-yrZ7h1u7Wzu3N8ymLSSuJXvUlIaf4wP0sH7TSq8RVWpcQU4BlUWjMDg7cqhKpd4Efc9g78m-Q"/>
+</button>
+<!-- Facebook -->
+<button class="glass-panel py-3 rounded-xl flex items-center justify-center hover:bg-surface-container transition-colors active:scale-90">
+<img alt="Facebook logo" class="w-5 h-5 opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIK-wY2RJavNG9Ad--Xw7ydg8gB4E9r23yWmEXw-j_GKyFawe4cbbTqe1LZAFVRTWrM7PjqILllSeVOIAfAz85pnob3TudbS8HzQxjKUQf9uH9pw6Z9t60GS4HK365EixQMTcOiQeBmiGUKhToSNogvYt6OxgArnO8xCvFY7BURwb0AgPbNm6JNyUU5rn4Ptzqq2nEdOTpXYTpakB-m8s9pq-GJ_P_gBE6L00-sZ6pSAWvnQw7_wGvsnHSTYueKmzHhcTmlJpnCXE"/>
+</button>
+</div>
+<!-- Footer Links -->
+<footer class="mt-stack-sm text-center">
+<p class="text-label-sm font-label-sm text-on-surface-variant/70">
+                    Already have an account? <a class="text-primary font-bold" href="#">Sign In</a>
+</p>
+<div class="mt-6 flex justify-center gap-4 text-[10px] uppercase tracking-tighter text-on-surface-variant/40">
+<a href="#">Privacy Policy</a>
+<span>•</span>
+<a href="#">Terms of Service</a>
+</div>
+</footer>
+</div>
+</main>
+<script>
+        // Page entry animations
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.getElementById('header-logo').classList.remove('opacity-0', 'translate-y-[-20px]');
+            }, 300);
+
+            setTimeout(() => {
+                document.getElementById('hero-card').classList.remove('opacity-0', 'scale-95');
+            }, 600);
+
+            setTimeout(() => {
+                document.getElementById('action-cluster').classList.remove('opacity-0', 'translate-y-[30px]');
+            }, 900);
+        });
+
+        // Micro-interaction for social buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('touchstart', () => {
+                btn.style.transform = 'scale(0.97)';
+            });
+            btn.addEventListener('touchend', () => {
+                btn.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HeartLink | Conversation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(250, 249, 248, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .message-shadow {
+            box-shadow: 0 10px 30px rgba(183, 110, 121, 0.08);
+        }
+        .ruby-gradient {
+            background: linear-gradient(135deg, #bc004d 0%, #e0115f 100%);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e4bdc2;
+            border-radius: 10px;
+        }
+        @keyframes typing {
+            0%, 100% { opacity: 0.3; transform: translateY(0); }
+            50% { opacity: 1; transform: translateY(-2px); }
+        }
+        .dot { animation: typing 1.4s infinite; }
+        .dot:nth-child(2) { animation-delay: 0.2s; }
+        .dot:nth-child(3) { animation-delay: 0.4s; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffd9dd",
+                        "tertiary-fixed": "#e5e2e1",
+                        "on-primary-fixed": "#3f0015",
+                        "on-primary-fixed-variant": "#900039",
+                        "surface-variant": "#e3e2e1",
+                        "inverse-on-surface": "#f1f0f0",
+                        "surface-container-high": "#e9e8e7",
+                        "on-primary-container": "#fff8f8",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#ffb2be",
+                        "on-secondary-container": "#7a3c46",
+                        "inverse-primary": "#ffb2be",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#bc004d",
+                        "surface-container-low": "#f4f3f2",
+                        "on-surface-variant": "#5b3f44",
+                        "surface-container": "#eeeeed",
+                        "surface-container-highest": "#e3e2e1",
+                        "secondary-fixed-dim": "#ffb2bc",
+                        "on-secondary-fixed-variant": "#70343e",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#e0115f",
+                        "tertiary": "#5b5a5a",
+                        "tertiary-container": "#747373",
+                        "outline": "#8f6f73",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "inverse-surface": "#2f3130",
+                        "secondary": "#8c4b55",
+                        "surface-bright": "#faf9f8",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "surface": "#faf9f8",
+                        "outline-variant": "#e4bdc2",
+                        "on-surface": "#1a1c1c",
+                        "on-tertiary-fixed-variant": "#474646",
+                        "secondary-container": "#feaab6",
+                        "on-tertiary-container": "#fdfaf9",
+                        "background": "#faf9f8",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "on-secondary-fixed": "#3a0915",
+                        "primary": "#b5004a",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "surface-dim": "#dadad9",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#ffd9de"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "12px",
+                        "stack-lg": "40px",
+                        "stack-md": "24px",
+                        "gutter": "16px",
+                        "base": "8px",
+                        "container-padding": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body-md text-on-surface selection:bg-secondary-container">
+<!-- Top Navigation Bar (Modified for Chat Context) -->
+<header class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-outline-variant/30 h-16 flex items-center px-container-padding justify-between">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 transition-transform duration-200 text-on-surface-variant">
+<span class="material-symbols-outlined">arrow_back_ios</span>
+</button>
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="w-10 h-10 rounded-full border border-outline-variant/50 overflow-hidden">
+<img class="w-full h-10 object-cover" data-alt="A professional studio portrait of a sophisticated woman with elegant features, soft natural lighting, and a minimalist Pearl White background. She is wearing a silk blouse in a soft Rose Gold hue, reflecting a Modern Luxury aesthetic. High-quality editorial photography with a shallow depth of field, focusing on her warm, trustworthy expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzeT62WZmpSe1nFrtzCPEnGP0SMSHc3hwx6o3EQ5Cer94W0rrvOn2oquFxozwYWY7oeIi1mE5cJQKiPTo5p-0z2dF5_VRf727GCZqTeGvzze7hZq5ykisY5lV1_W2BaKwlABea8iiHauDlFBj0wODYPC11DKBuDWIGD86bVt6koT5zJ3qhFkUsWd4SHvrIVtdqh3qkRatlyFqUl7_7BPJ_5hdSr32s6UqXgnY8QH_gAS8EMF1novL6BLp1jTEHW82P1_fRa83MHsY"/>
+</div>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-surface rounded-full"></div>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md leading-none text-on-surface">Julianna</h1>
+<span class="font-label-sm text-label-sm text-emerald-600">Online</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-primary hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">call</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-primary hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">videocam</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Chat Canvas -->
+<main class="pt-20 pb-24 min-h-screen px-container-padding max-w-2xl mx-auto flex flex-col gap-stack-md custom-scrollbar overflow-y-auto">
+<!-- Date Divider -->
+<div class="flex justify-center my-4">
+<span class="px-4 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[10px] uppercase tracking-widest">Today</span>
+</div>
+<!-- Received Message -->
+<div class="flex flex-col items-start max-w-[85%] group">
+<div class="bg-white border border-outline-variant/20 rounded-2xl rounded-tl-none p-4 message-shadow">
+<p class="font-body-md text-on-surface">I was just looking at the gallery you mentioned. The lighting in that exhibition is absolutely breathtaking.</p>
+</div>
+<div class="flex items-center gap-2 mt-1 px-1">
+<span class="font-label-sm text-[10px] text-on-surface-variant/60">10:42 AM</span>
+</div>
+</div>
+<!-- Sent Message -->
+<div class="flex flex-col items-end max-w-[85%] self-end group">
+<div class="ruby-gradient text-white rounded-2xl rounded-tr-none p-4 message-shadow">
+<p class="font-body-md">Right? It has that specific ethereal quality. I thought of you the moment I walked in. Would you like to see it together this weekend?</p>
+</div>
+<div class="flex items-center gap-2 mt-1 px-1">
+<span class="font-label-sm text-[10px] text-on-surface-variant/60">10:45 AM</span>
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">done_all</span>
+</div>
+</div>
+<!-- Received Message with Image -->
+<div class="flex flex-col items-start max-w-[85%]">
+<div class="bg-white border border-outline-variant/20 rounded-2xl rounded-tl-none p-2 message-shadow">
+<div class="w-full aspect-[4/3] rounded-xl overflow-hidden mb-2">
+<img class="w-full h-full object-cover" data-alt="A curated art gallery interior with high ceilings and minimalist architecture. Large-scale abstract canvases with hints of Ruby and Rose Gold are bathed in soft, volumetric lighting. The atmosphere is quiet and exclusive, perfectly matching the HeartLink premium aesthetic. Elegant shadows dance across the polished pearl floors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnK7l-LfC2yIqM3I8gGFvYFAMajL-JcdLM2adcmlBlMrffYiFPRyT0-_wGF-XQeROGehO94A44Rxzv29oPgpqB_Xk8ECjIDxuUqqa6AtTu2QZaGjCPT8tenKPutoiQYjnbCzHekVoF4XaEzXoq2BJhJPs2Bh8YDGMVUqaONQigYN6JXX8nbz5Yq3rqIdS_CmyJjOPXZM5pi-d8or7IuXvOltxAzH6fJ307aaoeATNa6aBl03PdL4qApUukyDhIq1TRHALUQgvCUcI"/>
+</div>
+<div class="px-2 pb-2">
+<p class="font-body-md text-on-surface">I'd love that. This piece in particular caught my eye. The colors remind me of our conversation yesterday.</p>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-1 px-1">
+<span class="font-label-sm text-[10px] text-on-surface-variant/60">10:48 AM</span>
+</div>
+</div>
+<!-- Typing Indicator -->
+<div class="flex items-center gap-2 px-1 opacity-80">
+<div class="flex gap-1 items-center bg-surface-container-low px-3 py-2 rounded-full border border-outline-variant/20">
+<div class="w-1.5 h-1.5 bg-primary rounded-full dot"></div>
+<div class="w-1.5 h-1.5 bg-primary rounded-full dot"></div>
+<div class="w-1.5 h-1.5 bg-primary rounded-full dot"></div>
+</div>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Julianna is typing</span>
+</div>
+</main>
+<!-- Footer Input -->
+<footer class="fixed bottom-0 left-0 w-full glass-panel border-t border-outline-variant/30 py-4 px-container-padding z-50">
+<div class="max-w-2xl mx-auto flex items-end gap-3">
+<!-- Accessory Actions -->
+<div class="flex items-center gap-1 pb-1">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+</div>
+<!-- Input Container -->
+<div class="flex-1 bg-white border border-outline-variant/40 rounded-[24px] flex items-end p-1 transition-all focus-within:border-primary/50 focus-within:ring-1 focus-within:ring-primary/20">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors shrink-0">
+<span class="material-symbols-outlined">sentiment_satisfied</span>
+</button>
+<textarea class="flex-1 bg-transparent border-none focus:ring-0 py-2.5 px-1 font-body-md text-on-surface placeholder:text-on-surface-variant/50 resize-none max-h-32 overflow-y-auto" oninput="this.style.height = '';this.style.height = this.scrollHeight + 'px'" placeholder="Message..." rows="1"></textarea>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors shrink-0">
+<span class="material-symbols-outlined">mic</span>
+</button>
+</div>
+<!-- Send Button -->
+<button class="w-12 h-12 ruby-gradient text-white rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</footer>
+<!-- Interactive Layer: Image Fullscreen View (Hidden by Default) -->
+<div class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl hidden flex-col items-center justify-center p-6 opacity-0 transition-opacity duration-300" id="image-viewer">
+<button class="absolute top-8 right-8 text-white" onclick="toggleViewer()">
+<span class="material-symbols-outlined text-4xl">close</span>
+</button>
+<img class="max-w-full max-h-[707px] rounded-xl object-contain shadow-2xl" id="viewer-img" src=""/>
+</div>
+<script>
+        // Simple Interaction logic
+        function toggleViewer() {
+            const viewer = document.getElementById('image-viewer');
+            if(viewer.classList.contains('hidden')) {
+                viewer.classList.remove('hidden');
+                setTimeout(() => viewer.classList.remove('opacity-0'), 10);
+            } else {
+                viewer.classList.add('opacity-0');
+                setTimeout(() => viewer.classList.add('hidden'), 300);
+            }
+        }
+
+        // Auto-scroll to bottom on load
+        window.scrollTo(0, document.body.scrollHeight);
+
+        // Input field behavior
+        const textarea = document.querySelector('textarea');
+        textarea.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                // Handled by app logic normally
+                textarea.value = '';
+                textarea.style.height = 'auto';
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Spark - Matches &amp; Messaging</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Quicksand:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config Verbatim -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#140067",
+                    "secondary-fixed-dim": "#ffb3b0",
+                    "tertiary": "#544daa",
+                    "surface-variant": "#e1e3e4",
+                    "tertiary-fixed-dim": "#c5c0ff",
+                    "outline": "#787586",
+                    "inverse-on-surface": "#f0f1f2",
+                    "primary": "#5341cd",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#413996",
+                    "on-primary-fixed": "#160066",
+                    "on-primary-fixed-variant": "#4029ba",
+                    "surface-dim": "#d9dadb",
+                    "on-surface": "#191c1d",
+                    "surface-bright": "#f8f9fa",
+                    "secondary-container": "#ff6b6b",
+                    "primary-fixed": "#e4dfff",
+                    "on-secondary-fixed": "#410006",
+                    "tertiary-container": "#6d66c4",
+                    "on-surface-variant": "#474554",
+                    "surface-container-highest": "#e1e3e4",
+                    "inverse-surface": "#2e3132",
+                    "on-primary-container": "#faf6ff",
+                    "on-secondary-container": "#6d0010",
+                    "tertiary-fixed": "#e3dfff",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#6c5ce7",
+                    "error": "#ba1a1a",
+                    "surface-container": "#edeeef",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff",
+                    "background": "#f8f9fa",
+                    "on-background": "#191c1d",
+                    "secondary": "#ae2f34",
+                    "inverse-primary": "#c6bfff",
+                    "secondary-fixed": "#ffdad8",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#e7e8e9",
+                    "surface-container-low": "#f3f4f5",
+                    "surface-tint": "#5847d2",
+                    "outline-variant": "#c8c4d7",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#faf6ff",
+                    "primary-fixed-dim": "#c6bfff",
+                    "surface": "#f8f9fa",
+                    "on-secondary-fixed-variant": "#8c1520"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "8px",
+                    "md": "24px",
+                    "base": "4px",
+                    "sm": "16px",
+                    "margin-mobile": "20px",
+                    "xl": "48px",
+                    "lg": "32px",
+                    "gutter-mobile": "12px"
+            },
+            "fontFamily": {
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Quicksand"],
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "headline-md": ["Quicksand"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Quicksand"],
+                    "body-sm": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Quicksand"],
+                    "label-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f8f9fa;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-surface">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-surface dark:bg-surface">
+<div class="flex justify-between items-center px-margin-mobile py-xs w-full max-w-[480px] mx-auto">
+<div class="active:scale-95 duration-150 transition-colors cursor-pointer p-2 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-primary text-[28px]" data-icon="sparkle">spark</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">Spark</h1>
+<div class="active:scale-95 duration-150 transition-colors cursor-pointer p-2 rounded-full hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-on-surface-variant text-[28px]" data-icon="tune">tune</span>
+</div>
+</div>
+</header>
+<main class="max-w-[480px] mx-auto pb-32">
+<!-- New Matches Section -->
+<section class="mt-sm">
+<div class="px-margin-mobile flex justify-between items-end mb-xs">
+<h2 class="font-headline-md text-headline-md text-on-surface">New Matches</h2>
+<span class="font-label-md text-label-md text-primary">12 New</span>
+</div>
+<div class="flex overflow-x-auto no-scrollbar gap-sm px-margin-mobile py-base">
+<!-- Match 1 (Active/Pulse) -->
+<div class="flex flex-col items-center flex-shrink-0 group">
+<div class="relative w-20 h-20 rounded-full p-[3px] bg-gradient-to-tr from-primary via-secondary-container to-primary transition-transform group-active:scale-90">
+<div class="w-full h-full rounded-full border-2 border-surface overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a cheerful young woman with bright curly hair and colorful artistic jewelry. She is laughing in a sun-drenched outdoor cafe with a soft-focus background of greenery and warm morning light. The aesthetic is clean, vibrant, and optimistic, matching a modern high-energy social app's visual style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtguHwO5NLdSytsv3rkzI1jatqjeDWDAPb-ekIzKlic2J2buXxDhC6V7hNdfD5rwtLMgk21JppaYijwA0QxftUPFTQTYhFqc9KjlwDxh--BVU0e9mBh3AAZrFeXcTZzT2G-lsxwPrV1Ntgx89OmQclWWUmXQB_-uBCZbwczE0W6yMFjuWXrxCjWm5GSo7I73E0tyTcT9dNb3sB-t1o18C3fwoUqBN0gCaxC_gOIsIe-QI0lUGix6uH0wadE4aPJEYZ3EvWSUcjons"/>
+</div>
+<div class="absolute bottom-0 right-1 w-4 h-4 bg-green-500 border-2 border-surface rounded-full"></div>
+</div>
+<span class="font-label-md text-label-md mt-xs">Elena</span>
+</div>
+<!-- Match 2 -->
+<div class="flex flex-col items-center flex-shrink-0 group">
+<div class="w-20 h-20 rounded-full p-[3px] bg-surface-container-highest transition-transform group-active:scale-90">
+<div class="w-full h-full rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A stylish man with a well-groomed beard wearing a minimalist linen shirt, standing in a bright, modern architectural space with clean lines and soft shadows. The lighting is high-key and natural, creating a sense of sophisticated minimalist luxury and authentic connection. The overall mood is calm and inviting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLsYCKZpH72VYWRG5okMu7ZqbUsM9FV8CwmhZtNtj1Nq2LT7Xu_aU70HnI8MrTATY9ByzP2O_eguP523RAT9LyEpISCO_3a0CGG3MtqVE2E6G5XRAKWe9oFMKJERsmQyRnBSuJT1zkFvGep8YOnDTrkfiMhEfB8qC47CpRbu-pvAH0_PqlU_Oh_sWjQGA5VAkGAEHQ0M9yqRTCfWs0Mvsgk7mxqpgmqkS6k-8WYJO8brfT7G1wT1F44olvTwFReN18GuHaPZEJ5Eo"/>
+</div>
+</div>
+<span class="font-label-md text-label-md mt-xs">Marcus</span>
+</div>
+<!-- Match 3 -->
+<div class="flex flex-col items-center flex-shrink-0 group">
+<div class="w-20 h-20 rounded-full p-[3px] bg-surface-container-highest transition-transform group-active:scale-90">
+<div class="w-full h-full rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a young creative professional with short blonde hair and stylish glasses, smiling warmly. She is in a minimalist studio setting with soft pastel purple accents in the background. The lighting is flattering and soft, emphasizing a warm and approachable personality in a high-quality modern interface style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC7i_zoSoJ6zGehOykamO0ibd18kelojrP2bU4cplNSXfS68PaGINzAEuecZqqgD467DX3VERYKt-kaqydCsvLaxZCNwywuS9__3O9dQAmzwfgcd-hwCgJgxK_KRjLtqStf0tFAe4Zw2RF1vCVE3DEB9eIxrL9XIYfKHL1ton1PZLybCmb3MVO6r0JbpGe9nGPS108-I6qTHVsye0S7PTUS8anlHw4gVlJ_eYhvyBvNe4kF7ZMZg3EX7j9kwdm23NS4ACNBKDF27M"/>
+</div>
+</div>
+<span class="font-label-md text-label-md mt-xs">Chloe</span>
+</div>
+<!-- Match 4 -->
+<div class="flex flex-col items-center flex-shrink-0 group">
+<div class="w-20 h-20 rounded-full p-[3px] bg-surface-container-highest transition-transform group-active:scale-90">
+<div class="w-full h-full rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A fit young man in casual athletic wear, captured during a sunrise hike with beautiful golden hour lighting. The background features hazy blue mountains and a clear sky, conveying a sense of adventure and spontaneity. The photography is crisp and modern, fitting for a lifestyle-focused social application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkTWLntGlQuq9kdv-MH9umU0o8YQKxBIAJbIhgZZ42Taj0Ca9hFEbjk35R46YGxA5Qa-QktZMlNUIxdKdE5xet4TEEEWHKbyWQU9scJW2RFpNediqZHU_83fHjSOl8KVWRPx-Alp8Cof_3UZk7x3sO96GNVM3GLgb9f7mAH53YDyq02SkRKhx7qC3clTiTeHn2W6ZQj6PJ9fDVD-f1RZ52iAkO_LdEtWNY6CtOTNfAKb0NQuSAwQnxVX5MeGHvIBZRAzMXpS0Dku0"/>
+</div>
+</div>
+<span class="font-label-md text-label-md mt-xs">Julian</span>
+</div>
+<!-- Match 5 -->
+<div class="flex flex-col items-center flex-shrink-0 group">
+<div class="w-20 h-20 rounded-full p-[3px] bg-surface-container-highest transition-transform group-active:scale-90">
+<div class="w-full h-full rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a woman with long dark hair wearing a minimalist white dress, standing in a lush botanical garden. Soft dappled sunlight filters through the leaves, creating a tactile and serene atmosphere. The image is clean and focused, emphasizing authenticity and high-end aesthetic values." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxfFR3EqiXxSU2k64ZU-u8TRfHRmdummatpq1XowR3UhcCesYmclQFYvHMn7Y7K4dT0j3CnEw2sCqsZ7rax_CwYQkB6sA1VB2dcDbFvEZroMCm8aKl_xTJcyo1Q4oP-qE-15ap6lCoLnTXHnb4zUbg3lJBTFeKbJ52d_kqDC9QTLDdpP5NSNQT1bSsdj3-9QN5huRFAo-cnmpX-MgBKN1_VTCZeJHQpho5P5EvEG9f3Lt9PyC_Gf-xGq2ZWN4NC6WdtpIz3Xj6ljk"/>
+</div>
+</div>
+<span class="font-label-md text-label-md mt-xs">Sasha</span>
+</div>
+</div>
+</section>
+<!-- Messages List Section -->
+<section class="mt-lg">
+<div class="px-margin-mobile flex items-center justify-between mb-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Messages</h2>
+<div class="bg-surface-container-low p-2 rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]" data-icon="search">search</span>
+</div>
+</div>
+<div class="space-y-base">
+<!-- Chat 1 (Unread) -->
+<div class="flex items-center px-margin-mobile py-sm hover:bg-surface-container-lowest transition-colors active:bg-surface-container cursor-pointer">
+<div class="relative flex-shrink-0">
+<div class="w-16 h-16 rounded-2xl overflow-hidden shadow-md">
+<img class="w-full h-full object-cover" data-alt="A modern, high-fashion portrait of a young woman with a vibrant orange top against a soft lilac background. She has a playful expression and the lighting is crisp and studio-quality. The composition is clean, following the warm minimalist design principles of the social app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKmybtmT-XtexOkW63-5cF7ZxJ1oek2ePmf0PMI4fuWq-cFWCP-09KL3tvE6oZkyzyrMyKBnB28gXDutBC4hSVvjnSXoFnb3yOHYZ5cOlPgFjxekvAox8lgw0McVEmGWAneVAjMvZ-QLdJJZ3jKDug7YCkfmJDuJkv6d035WZBwKF_sGCm9nLlhwyba3hOfIHqe6zebxB99Ih2F_J8BjPJzr4qwiDzBMtVOyr2VhR7_nk4zFnKkUg480UnGwiEendwiKvnOZ8cur0"/>
+</div>
+<div class="absolute -top-1 -right-1 w-5 h-5 bg-primary rounded-full flex items-center justify-center text-[10px] text-white font-bold border-2 border-surface">1</div>
+</div>
+<div class="ml-sm flex-grow border-b border-surface-container-low pb-sm">
+<div class="flex justify-between items-center mb-1">
+<span class="font-headline-md text-[18px] text-on-surface">Elena</span>
+<span class="font-label-sm text-label-sm text-primary">2m ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface font-bold truncate max-w-[200px]">That coffee place sounds amazing! ☕️</p>
+</div>
+</div>
+<!-- Chat 2 -->
+<div class="flex items-center px-margin-mobile py-sm hover:bg-surface-container-lowest transition-colors active:bg-surface-container cursor-pointer">
+<div class="relative flex-shrink-0">
+<div class="w-16 h-16 rounded-2xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Close up of a man with a friendly smile, wearing a denim jacket in a cool-toned urban environment. The background is slightly blurred with city lights beginning to glow at dusk. The overall look is professional yet approachable, tailored for a high-quality social networking interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7apK0RKRy4rAciS8WuGHrSnsK_q2slFvMHT_2J5N29OM0ZmmRwJ53jKUt9_xeSglkfKwXrIaa4cKGsbKiRcQYTUQ-UadugiSumYcIcu0sYYaDGQb_pxN26n6pOJ0it_KDEldtWJxL38LOJAotWx7vI39ngzT2J2SF7cabeuS3a60PR_T5IFFa4jrdDJtwFLC9LgnMNcsn7eAP75QZk1ec9-bLw0aBrSF-gHlx9tELjTQVSjNw7awInQv7MOURpDAGej5ibD_WO54"/>
+</div>
+</div>
+<div class="ml-sm flex-grow border-b border-surface-container-low pb-sm">
+<div class="flex justify-between items-center mb-1">
+<span class="font-headline-md text-[18px] text-on-surface">Marcus</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1h ago</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate max-w-[200px]">Haha, I actually grew up there!</p>
+</div>
+</div>
+<!-- Chat 3 -->
+<div class="flex items-center px-margin-mobile py-sm hover:bg-surface-container-lowest transition-colors active:bg-surface-container cursor-pointer">
+<div class="relative flex-shrink-0">
+<div class="w-16 h-16 rounded-2xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A young woman with a bob haircut and bright yellow sweater, smiling genuinely in a bright library setting. The atmosphere is intellectual and warm, with soft natural light hitting her face. The image quality is high, representing a modern, clean, and authentic user profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7sqwoEJ4GDJw3n2KgwMfWuotN4YweY7TYGh8imja-gZu3LasKIOUdD46hU-rqDhHvo9L0Hy3fEZsbw-VmnjotqRPXomGPhGuWFM6tGdrOB5MEU1Zn0LLo4Gul0wa5pS8MbayZ-2v9M8eoUw5oIcDZ1Zm30W9o7W8YImYAIOLOhMlrUqfU0MCFB1H9wKT257vPcSkPn_fxlSiaPOLk2AXbSd29tPIzRR4xvHfjyTQ_UjNAfBQsMOWA2Y9KATuznio6ftmmdxYjhas"/>
+</div>
+</div>
+<div class="ml-sm flex-grow border-b border-surface-container-low pb-sm">
+<div class="flex justify-between items-center mb-1">
+<span class="font-headline-md text-[18px] text-on-surface">Chloe</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Yesterday</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="done_all">done_all</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate max-w-[180px]">See you at 7 then!</p>
+</div>
+</div>
+</div>
+<!-- Chat 4 -->
+<div class="flex items-center px-margin-mobile py-sm hover:bg-surface-container-lowest transition-colors active:bg-surface-container cursor-pointer">
+<div class="relative flex-shrink-0">
+<div class="w-16 h-16 rounded-2xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A man with an athletic build, wearing a simple gray t-shirt, standing on a beach at sunset. The sky is filled with warm oranges and purples, reflecting the app's primary color palette. The mood is adventurous and peaceful, emphasizing a connection with nature and spontaneity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjqNLMNtqfNFqMzXvFke-Y3WRRe-1nEhjZBAkFoZWYb6GGzmtQSomHmj8RegaR5N353RDYYElZZZ6xdlyKthlqUwDFNONkCmZiFWw4pD9owFLZRKul04T1Gc5mCj-ZAzNauyxnqe-VajxlqUhsLPYt01DdsdWsBb5hIwrqNj8eaIO4oN7IRcc9ubVJ_oFqQKmhOvAxx72Nemo67lFqKNYZJ5oTQLLt9-hl-ckcUZuDAnIR8gRC6wbQDpm8z7ibgRAOmtV_x-SGfgM"/>
+</div>
+</div>
+<div class="ml-sm flex-grow border-b border-surface-container-low pb-sm">
+<div class="flex justify-between items-center mb-1">
+<span class="font-headline-md text-[18px] text-on-surface">Julian</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tue</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate max-w-[200px]">Sent a photo</p>
+</div>
+</div>
+<!-- Chat 5 -->
+<div class="flex items-center px-margin-mobile py-sm hover:bg-surface-container-lowest transition-colors active:bg-surface-container cursor-pointer">
+<div class="relative flex-shrink-0">
+<div class="w-16 h-16 rounded-2xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A woman with striking features and a minimalist black turtleneck, standing against a crisp white wall with a single green leaf shadow cast upon it. The lighting is artistic and deliberate, evoking a sense of modern elegance and authentic self-expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo_5SxvivnR7acoZZHny8VtuEQMTqQqXoojmOrDVOEnJSv1Va9e-nP2jYo4cgjGWRhO9J2x92xy4KeHkyFlvjwgK5jO2CHofwixpHAkUltvNKizbFTB5HgGRVOs2_FFmv8Jex4Xz2IYVpdzedALEIVpD4y5ZR9KHLElgne5CycKXYHAgcjJI_tRbQB0yFzfxE_JV8Gq3f-qR0jZVLqdLcUWU2Y2lv4fE-E-yi7qEJ-q7pph0OFor6F9KlU821p4-lo3NgiOXDZFzA"/>
+</div>
+</div>
+<div class="ml-sm flex-grow border-b border-surface-container-low pb-sm">
+<div class="flex justify-between items-center mb-1">
+<span class="font-headline-md text-[18px] text-on-surface">Sasha</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mon</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate max-w-[200px]">I loved that movie too!</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-surface max-w-[480px] left-1/2 -translate-x-1/2 z-50 shadow-[0_-4px_12px_rgba(83,65,205,0.06)] rounded-t-xl">
+<!-- Discover -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:opacity-80 transition-opacity active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="explore">explore</span>
+<span class="font-label-sm text-label-sm">Discover</span>
+</a>
+<!-- Matches (ACTIVE) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 hover:opacity-80 transition-opacity active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="chat_bubble" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span class="font-label-sm text-label-sm">Matches</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:opacity-80 transition-opacity active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for list items
+        document.querySelectorAll('.cursor-pointer').forEach(item => {
+            item.addEventListener('mousedown', () => {
+                item.classList.add('bg-surface-container-low');
+            });
+            item.addEventListener('mouseup', () => {
+                item.classList.remove('bg-surface-container-low');
+            });
+            item.addEventListener('mouseleave', () => {
+                item.classList.remove('bg-surface-container-low');
+            });
+        });
+
+        // Simple horizontal scroll wheel support
+        const scrollContainer = document.querySelector('.no-scrollbar');
+        scrollContainer.addEventListener('wheel', (evt) => {
+            evt.preventDefault();
+            scrollContainer.scrollLeft += evt.deltaY;
+        });
+    </script>
+</body></html>

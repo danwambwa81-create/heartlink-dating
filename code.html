@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HeartLink Admin - Content Moderation</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#1a1c1c",
+                        "on-secondary-fixed": "#3a0915",
+                        "tertiary": "#5b5a5a",
+                        "on-error": "#ffffff",
+                        "primary": "#b5004a",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e3e2e1",
+                        "on-tertiary-container": "#fdfaf9",
+                        "surface-container": "#eeeeed",
+                        "on-background": "#1a1c1c",
+                        "inverse-surface": "#2f3130",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "on-primary-container": "#fff8f8",
+                        "inverse-on-surface": "#f1f0f0",
+                        "primary-fixed-dim": "#ffb2be",
+                        "on-error-container": "#93000a",
+                        "surface": "#faf9f8",
+                        "outline-variant": "#e4bdc2",
+                        "surface-tint": "#bc004d",
+                        "surface-dim": "#dadad9",
+                        "surface-bright": "#faf9f8",
+                        "surface-container-high": "#e9e8e7",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#900039",
+                        "secondary": "#8c4b55",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "inverse-primary": "#ffb2be",
+                        "tertiary-fixed": "#e5e2e1",
+                        "primary-container": "#e0115f",
+                        "on-tertiary": "#ffffff",
+                        "background": "#faf9f8",
+                        "secondary-fixed-dim": "#ffb2bc",
+                        "outline": "#8f6f73",
+                        "on-secondary-fixed-variant": "#70343e",
+                        "surface-variant": "#e3e2e1",
+                        "on-surface-variant": "#5b3f44",
+                        "tertiary-container": "#747373",
+                        "secondary-fixed": "#ffd9dd",
+                        "on-secondary-container": "#7a3c46",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f4f3f2",
+                        "on-tertiary-fixed-variant": "#474646",
+                        "secondary-container": "#feaab6",
+                        "primary-fixed": "#ffd9de",
+                        "on-primary-fixed": "#3f0015"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding": "24px",
+                        "gutter": "16px",
+                        "stack-sm": "12px",
+                        "base": "8px",
+                        "stack-md": "24px",
+                        "stack-lg": "40px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(181, 0, 74, 0.1);
+            box-shadow: 0 30px 60px -12px rgba(183, 110, 121, 0.15);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e4bdc2;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex">
+<!-- Navigation Drawer -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface border-r border-outline-variant/30 z-50 md:flex flex-col hidden py-6 gap-2">
+<div class="px-6 mb-8">
+<span class="font-headline-md text-headline-md text-primary font-bold tracking-tight">Management</span>
+</div>
+<nav class="flex flex-col gap-1">
+<div class="flex items-center gap-3 px-4 py-3 cursor-pointer transition-all hover:bg-surface-container-high mx-2 rounded-lg text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 cursor-pointer transition-all hover:bg-surface-container-high mx-2 rounded-lg text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Users</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 cursor-pointer transition-all bg-primary-container text-on-primary-container mx-2 rounded-lg font-semibold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">gavel</span>
+<span class="font-label-md text-label-md">Reports</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-3 cursor-pointer transition-all hover:bg-surface-container-high mx-2 rounded-lg text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</div>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 relative min-h-screen bg-surface-container-low">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm flex items-center justify-between px-6 py-4 z-40">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-2xl">dashboard</span>
+<h1 class="font-headline-md text-headline-md font-bold tracking-tight text-primary">HeartLink Admin</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex flex-col items-end">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Senior Moderator</span>
+<span class="text-xs text-tertiary">Session: 2h 45m</span>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20 cursor-pointer active:scale-95 duration-200">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a high-end service professional with a serene expression, set against a minimalist architectural background with soft rose-tinted lighting. The aesthetic is clean and modern, reflecting the HeartLink brand's luxury and trust-focused identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb8_ZacgAnxVsII2eoeYeREBnCglIRKbi_OMsvWZ8hCVoeOi8DjLql8BntatIi_CLDd1BxYqL3i7vKfPn2fHrlOGuOJdXDnD6DbOWTn79xqi6lEHcKVMFYqy9cBJA2Q-jXfstyhnX62aD3uVJLhlVXuoLw2vZ6EGOw0Vo17NsRShYFEszBMTs7FD5m92RSC-S0x5vi_0X3JJz1FWWjZBlRRR1HY-Paxs6khPPKlrCk5ZhYSqIZ_ZsHQDsEGccidVZtel0IwSEVg7E"/>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="p-container-padding max-w-7xl mx-auto space-y-stack-lg">
+<!-- Dashboard Header Stats -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="glass-card p-6 rounded-xl flex items-center justify-between">
+<div>
+<p class="text-tertiary font-label-md text-label-md uppercase tracking-wider mb-1">Pending Reports</p>
+<h2 class="font-display-lg text-display-lg text-primary">128</h2>
+</div>
+<div class="bg-primary/10 p-3 rounded-full">
+<span class="material-symbols-outlined text-primary text-3xl">priority_high</span>
+</div>
+</div>
+<div class="glass-card p-6 rounded-xl flex items-center justify-between">
+<div>
+<p class="text-tertiary font-label-md text-label-md uppercase tracking-wider mb-1">Recent Actions</p>
+<h2 class="font-display-lg text-display-lg text-secondary">42</h2>
+</div>
+<div class="bg-secondary/10 p-3 rounded-full">
+<span class="material-symbols-outlined text-secondary text-3xl">verified_user</span>
+</div>
+</div>
+<div class="glass-card p-6 rounded-xl flex items-center justify-between">
+<div>
+<p class="text-tertiary font-label-md text-label-md uppercase tracking-wider mb-1">Safety Index</p>
+<h2 class="font-display-lg text-display-lg text-on-surface">98%</h2>
+</div>
+<div class="bg-surface-container-high p-3 rounded-full">
+<span class="material-symbols-outlined text-on-surface text-3xl">shield</span>
+</div>
+</div>
+</section>
+<!-- Moderation Queue -->
+<section class="space-y-stack-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Active Reports Queue</h3>
+<div class="flex gap-2">
+<button class="px-4 py-2 rounded-full border border-outline text-label-md font-label-md hover:bg-surface-container-high transition-colors">
+                            Filter: All
+                        </button>
+<button class="px-4 py-2 rounded-full border border-outline text-label-md font-label-md hover:bg-surface-container-high transition-colors">
+                            Sort: Newest
+                        </button>
+</div>
+</div>
+<!-- Report Items List -->
+<div class="space-y-4">
+<!-- Report Item 1 -->
+<div class="glass-card rounded-xl overflow-hidden group hover:scale-[1.01] transition-transform duration-300">
+<div class="flex flex-col md:flex-row">
+<!-- Left: Reported Profile Info -->
+<div class="md:w-1/3 p-6 flex gap-4 border-b md:border-b-0 md:border-r border-outline-variant/20">
+<div class="w-20 h-20 rounded-xl overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A portrait of a male user in his late 20s, styled with luxury apparel and an expensive watch, posing in an upscale rooftop bar during golden hour. The image has a high-fashion, editorial feel with soft, rose-tinted shadows and a deep focus on the subject's friendly but sophisticated expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSeodkfcOIsY1396m1ZTNP2s6wZODuLOh8JuPFw-2ANXMYmc0VA8yKtaEaQhSHIYG_Olw0XmGQsoS26qDP9tL5qGaOMWd1hQHzSHFxgUBGltbSn5JIvcll_0X9_iUQpSZyWFLAPzLjD0vW_nj11xzy0wXhlN4NWi194PFnTpTpsPpFGRCicfwV4NVEuFedVD6IMtoMfp6gIbUoIwSWPpZ7Clk_VI6Fh2UJ331VW4SN7Q2sMlFr7o2rWbTSngPcqpCLZYclXDTQbaw"/>
+</div>
+<div class="flex flex-col justify-center">
+<h4 class="font-headline-md text-headline-md text-on-surface leading-tight">Julian, 29</h4>
+<p class="text-tertiary text-sm">Joined June 2023</p>
+<span class="mt-2 inline-flex items-center gap-1 text-xs px-2 py-0.5 bg-error/10 text-error font-semibold rounded-full w-fit">
+<span class="material-symbols-outlined text-xs">report</span>
+                                        Fake Profile
+                                    </span>
+</div>
+</div>
+<!-- Middle: Reported Content Preview -->
+<div class="flex-1 p-6 flex flex-col md:flex-row gap-6">
+<div class="md:w-32 h-32 rounded-lg bg-surface-container-highest overflow-hidden border border-outline-variant/30 shrink-0">
+<img class="w-full h-full object-cover filter brightness-90" data-alt="A blurry, suspicious looking profile photo that appears to be a stock image of a generic business man. The lighting is artificial and cold, contrasting sharply with the HeartLink premium brand aesthetic, suggesting a potential fraudulent identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCsKTshhrm65wYUE4GU4hEexsJYiZnP-EPJYFkb3l33AXVxCxzwxzVrlN6e4z9kh0LxZA747kJxrPwHfvybw-8L9o_vkkAZiSjVBzWbXMKW9NBi0I3NvvuxzpSAv5WMhOHRU7gUZDu4X6A6EjNDykQDog1VFDDAX4XBXT60qG6Xe-_kqf-zwkMOpBF38ou6EB05Lsp4-pudTZK_cKTVSLFqzWl6O0WnYfbOvIPOZ8HSvs2Ygab3b-6D6eUB_gpnDvBL8KMT_QOiUA"/>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-tertiary uppercase tracking-wider mb-2">Reporter's Comment</p>
+<p class="text-on-surface-variant font-body-md italic leading-relaxed">
+                                        "This user is using images from a stock photo website. I found the exact same photo on three other platforms under different names."
+                                    </p>
+<div class="mt-4 flex items-center gap-2 text-xs text-tertiary">
+<span class="material-symbols-outlined text-sm">history</span>
+                                        Reported 14 minutes ago by User #8842
+                                    </div>
+</div>
+</div>
+<!-- Right: Actions -->
+<div class="p-6 bg-surface-container/30 flex flex-row md:flex-col justify-center gap-3">
+<button class="flex-1 px-6 py-3 rounded-full bg-gradient-to-r from-primary to-secondary text-on-primary font-label-md text-label-md transition-all active:scale-95 shadow-lg shadow-primary/20">
+                                    Take Action
+                                </button>
+<button class="flex-1 px-6 py-3 rounded-full border border-outline text-on-surface-variant font-label-md text-label-md hover:bg-surface transition-all active:scale-95">
+                                    Dismiss
+                                </button>
+</div>
+</div>
+</div>
+<!-- Report Item 2 -->
+<div class="glass-card rounded-xl overflow-hidden group hover:scale-[1.01] transition-transform duration-300">
+<div class="flex flex-col md:flex-row">
+<div class="md:w-1/3 p-6 flex gap-4 border-b md:border-b-0 md:border-r border-outline-variant/20">
+<div class="w-20 h-20 rounded-xl overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A sophisticated woman in a minimalist white studio, wearing pearl earrings and a silk blouse. The photography style is extremely high-end, editorial, with a focus on clean lines and a soft pearl-toned palette, maintaining the HeartLink modern luxury brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9M5BQG7k5-jD23AN3WECGpupCVZUDzDQgzAL-couaNOh2JG2HBmKWMV9r_IYmeGiJ2lXlJstaTsOZJndISlAUrjzXKSmuoiuJrwq5KmenypvS6W6y60qTSIHeoZPJ9onAdvHKcAgjkFDBE_kikvU73BthcrdXXCVgz9gykGTRrS4YfyinvHX7ZoMZ4v7a3d0Sr3FkPytr6euzo_s100E-s5AgSC7MmEwY5aRdwiETAlQVFZzOOGnUKx_8X6YDnCakBBQNqT9D0kA"/>
+</div>
+<div class="flex flex-col justify-center">
+<h4 class="font-headline-md text-headline-md text-on-surface leading-tight">Eleanor, 34</h4>
+<p class="text-tertiary text-sm">Joined Jan 2024</p>
+<span class="mt-2 inline-flex items-center gap-1 text-xs px-2 py-0.5 bg-secondary/10 text-secondary font-semibold rounded-full w-fit">
+<span class="material-symbols-outlined text-xs">chat_bubble</span>
+                                        Harassment
+                                    </span>
+</div>
+</div>
+<div class="flex-1 p-6 flex flex-col md:flex-row gap-6">
+<div class="flex-1">
+<p class="font-label-md text-label-md text-tertiary uppercase tracking-wider mb-2">Flagged Message Log</p>
+<div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant/20">
+<p class="text-on-surface-variant font-body-md mb-2">
+<span class="font-semibold text-secondary">Eleanor:</span> "You really think you belong in a club like this? Why even try..."
+                                        </p>
+<p class="text-on-surface-variant font-body-md opacity-60">
+<span class="font-semibold">Recipient:</span> (Flagged for review)
+                                        </p>
+</div>
+<div class="mt-4 flex items-center gap-2 text-xs text-tertiary">
+<span class="material-symbols-outlined text-sm">history</span>
+                                        Reported 1 hour ago by User #2210
+                                    </div>
+</div>
+</div>
+<div class="p-6 bg-surface-container/30 flex flex-row md:flex-col justify-center gap-3">
+<button class="flex-1 px-6 py-3 rounded-full bg-gradient-to-r from-primary to-secondary text-on-primary font-label-md text-label-md transition-all active:scale-95 shadow-lg shadow-primary/20">
+                                    Take Action
+                                </button>
+<button class="flex-1 px-6 py-3 rounded-full border border-outline text-on-surface-variant font-label-md text-label-md hover:bg-surface transition-all active:scale-95">
+                                    Dismiss
+                                </button>
+</div>
+</div>
+</div>
+<!-- Report Item 3 -->
+<div class="glass-card rounded-xl overflow-hidden group hover:scale-[1.01] transition-transform duration-300 opacity-80">
+<div class="flex flex-col md:flex-row">
+<div class="md:w-1/3 p-6 flex gap-4 border-b md:border-b-0 md:border-r border-outline-variant/20">
+<div class="w-20 h-20 rounded-xl overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A profile photo of a user in a dimly lit setting, partially obscured by shadows. The atmosphere is dark and moody, with a hint of ruby-red neon light reflecting on a glass surface. The photography maintains a cinematic quality while appearing slightly more casual than the curated editorial standard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0fpKI4YnRT6_akM-dV3kfKBPrtJ53vOAUcD1_sXXtO-zEHTAf-Kr8bM9nLKMU7k8uGH-s6W9yFMLXFQFn4zHJAF4HerYRoRJXmRO7bzV2kJZ9juLsZZbfqNQlv1eesiugkgd7WLbyGw-SwMkPJdSFHSBD_0ue69s92FofThecLzL9YEklEcwZ8flEBh9-EDxCPHwmUsLdj3q0xcswhErHnoz-XZab_cHmmjwfJ5IYmz2HXb3Vik0F0KfY3tOvVq3olUllLSrShDs"/>
+</div>
+<div class="flex flex-col justify-center">
+<h4 class="font-headline-md text-headline-md text-on-surface leading-tight">Marcus, 27</h4>
+<p class="text-tertiary text-sm">Joined Oct 2023</p>
+<span class="mt-2 inline-flex items-center gap-1 text-xs px-2 py-0.5 bg-tertiary/10 text-tertiary font-semibold rounded-full w-fit">
+<span class="material-symbols-outlined text-xs">imagesearch_roller</span>
+                                        Inappropriate Media
+                                    </span>
+</div>
+</div>
+<div class="flex-1 p-6 flex flex-col md:flex-row gap-6">
+<div class="md:w-32 h-32 rounded-lg bg-surface-container-highest flex items-center justify-center border border-outline-variant/30 shrink-0">
+<span class="material-symbols-outlined text-4xl text-outline-variant">visibility_off</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-label-md text-tertiary uppercase tracking-wider mb-2">Content Note</p>
+<p class="text-on-surface-variant font-body-md italic leading-relaxed">
+                                        "Automated scan flagged image #3 for potential commercial solicitation/external QR code links."
+                                    </p>
+<div class="mt-4 flex items-center gap-2 text-xs text-tertiary">
+<span class="material-symbols-outlined text-sm">smart_toy</span>
+                                        Flagged by HeartLink AI
+                                    </div>
+</div>
+</div>
+<div class="p-6 bg-surface-container/30 flex flex-row md:flex-col justify-center gap-3">
+<button class="flex-1 px-6 py-3 rounded-full bg-gradient-to-r from-primary to-secondary text-on-primary font-label-md text-label-md transition-all active:scale-95 shadow-lg shadow-primary/20">
+                                    Take Action
+                                </button>
+<button class="flex-1 px-6 py-3 rounded-full border border-outline text-on-surface-variant font-label-md text-label-md hover:bg-surface transition-all active:scale-95">
+                                    Dismiss
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination/Load More -->
+<div class="flex justify-center pt-8">
+<button class="group flex items-center gap-2 px-8 py-3 rounded-full border border-primary text-primary font-label-md text-label-md hover:bg-primary/5 transition-all">
+                        Load more reports
+                        <span class="material-symbols-outlined group-hover:translate-y-1 transition-transform">keyboard_arrow_down</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Matching Overlay Concept (Hidden by Default) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-6" id="actionModal">
+<div class="absolute inset-0 bg-surface/40 backdrop-blur-2xl"></div>
+<div class="glass-card max-w-lg w-full rounded-2xl p-8 relative z-10 animate-in fade-in zoom-in duration-300">
+<div class="text-center space-y-4">
+<div class="w-16 h-16 bg-error/10 text-error rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-4xl">gavel</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Confirm Action</h2>
+<p class="text-on-surface-variant font-body-md">
+                        Please select the appropriate disciplinary action for this account. This decision will be logged and may be subject to review.
+                    </p>
+<div class="space-y-3 pt-6">
+<button class="w-full py-4 rounded-xl bg-error text-on-error font-semibold transition-all hover:bg-error/90 active:scale-[0.98]">
+                            Permanent Ban
+                        </button>
+<button class="w-full py-4 rounded-xl border border-outline-variant text-on-surface-variant font-semibold transition-all hover:bg-surface active:scale-[0.98]">
+                            7-Day Suspension
+                        </button>
+<button class="w-full py-4 rounded-xl border border-outline-variant text-on-surface-variant font-semibold transition-all hover:bg-surface active:scale-[0.98]">
+                            Content Removal &amp; Warning
+                        </button>
+<button class="w-full py-3 text-tertiary font-label-md hover:text-primary transition-colors" onclick="closeModal()">
+                            Cancel
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script>
+        function openModal() {
+            document.getElementById('actionModal').classList.remove('hidden');
+        }
+        function closeModal() {
+            document.getElementById('actionModal').classList.add('hidden');
+        }
+
+        // Attach modal open to all "Take Action" buttons
+        document.querySelectorAll('button').forEach(btn => {
+            if(btn.innerText.includes('Take Action')) {
+                btn.addEventListener('click', openModal);
+            }
+        });
+
+        // Simple dismissal micro-interaction
+        document.querySelectorAll('button').forEach(btn => {
+            if(btn.innerText.includes('Dismiss')) {
+                btn.addEventListener('click', function() {
+                    const card = this.closest('.glass-card');
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateX(20px)';
+                    setTimeout(() => {
+                        card.remove();
+                    }, 300);
+                });
+            }
+        });
+    </script>
+</body></html>

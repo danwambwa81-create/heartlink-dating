@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Report User | HeartConnect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffd9de",
+                    "surface-container-highest": "#353534",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "on-primary-fixed-variant": "#91002f",
+                    "surface-container-high": "#2a2a2a",
+                    "surface-container-lowest": "#0e0e0e",
+                    "inverse-primary": "#bb1041",
+                    "on-secondary": "#303030",
+                    "primary-fixed-dim": "#ffb2b9",
+                    "tertiary": "#ffb2be",
+                    "surface-bright": "#393939",
+                    "on-secondary-fixed-variant": "#474747",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#ffb2be",
+                    "on-surface-variant": "#e2bec0",
+                    "tertiary-container": "#c37d89",
+                    "outline": "#aa898b",
+                    "error-container": "#93000a",
+                    "secondary": "#c8c6c6",
+                    "surface-dim": "#131313",
+                    "surface": "#131313",
+                    "on-tertiary-fixed": "#380b16",
+                    "surface-tint": "#ffb2b9",
+                    "on-tertiary": "#52202b",
+                    "on-primary": "#67001f",
+                    "error": "#ffb4ab",
+                    "surface-container": "#201f1f",
+                    "on-primary-fixed": "#400010",
+                    "primary-fixed": "#ffdadc",
+                    "on-background": "#e5e2e1",
+                    "on-tertiary-fixed-variant": "#6d3640",
+                    "on-error": "#690005",
+                    "on-secondary-container": "#b6b5b4",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-variant": "#353534",
+                    "on-surface": "#e5e2e1",
+                    "outline-variant": "#5a4042",
+                    "on-tertiary-container": "#4a1924",
+                    "primary": "#ffb2b9",
+                    "inverse-on-surface": "#313030",
+                    "secondary-fixed": "#e4e2e1",
+                    "primary-container": "#ff5070",
+                    "inverse-surface": "#e5e2e1",
+                    "on-primary-container": "#5b001a",
+                    "background": "#131313",
+                    "secondary-fixed-dim": "#c8c6c6",
+                    "secondary-container": "#474747"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "md": "16px",
+                    "base": "8px",
+                    "sm": "12px",
+                    "margin-mobile": "16px",
+                    "gutter": "16px",
+                    "xl": "32px",
+                    "margin-desktop": "64px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "title-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "700"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .reason-chip input:checked + label {
+            background-color: rgba(255, 178, 185, 0.12);
+            border-color: #ffb2b9;
+            color: #ffb2b9;
+        }
+        .safe-area-inset-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col">
+<!-- Top AppBar (Report User) -->
+<header class="bg-surface sticky top-0 z-50 flex justify-between items-center w-full px-margin-mobile h-16">
+<button aria-label="Go back" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant/20 transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary tracking-tight">Report User</h1>
+<div class="w-10 h-10"></div> <!-- Spacer for centering -->
+</header>
+<main class="flex-1 overflow-y-auto px-margin-mobile pt-4 pb-32">
+<!-- Profile Preview Section -->
+<div class="flex items-center gap-md p-md bg-surface-container rounded-xl mb-lg border border-outline-variant/10">
+<div class="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A portrait of a person for a dating app profile. The lighting is moody and cinematic with soft pink and deep grey tones. The subject is looking away from the camera with a neutral expression. The style is modern, professional, and elegant, consistent with a high-end social networking application design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqCtE6HO8gTtnl1KgXDo40lZvkMavGZaVnl6hWgeP0Jqi1PL1RirIiOXeDKJ9SRyaySDqUbZafO3YJrOfWWta_9SQ7FBlZZV8ojP1bXtBHcMHw1iR3YxKRGQN0M5IRjuH3qZUJtX1g5f0Ry9kpj7gTrJDaYTK4tYFVgaYA7TL5M17uSkOlXFin6f97U7p7c1azWfNdl0RwS6e-sFJIntBFOqpEUdXBQ0d00FivhzcK2JzYTdDwkmyv57TTYGtKjHJgH-EXEhJekzY"/>
+</div>
+<div>
+<h2 class="font-title-lg text-title-lg text-on-surface">Marcus, 28</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Profile active since Oct 2023</p>
+</div>
+</div>
+<!-- Section: Reason -->
+<section class="mb-xl">
+<h3 class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant mb-md">Why are you reporting?</h3>
+<div class="flex flex-col gap-sm">
+<div class="reason-chip">
+<input class="hidden" id="fake" name="report_reason" type="radio"/>
+<label class="flex items-center justify-between p-md border border-outline-variant rounded-xl cursor-pointer transition-all hover:bg-surface-variant/10" for="fake">
+<span class="font-body-lg text-body-lg">Fake Profile / Scammer</span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</label>
+</div>
+<div class="reason-chip">
+<input class="hidden" id="behavior" name="report_reason" type="radio"/>
+<label class="flex items-center justify-between p-md border border-outline-variant rounded-xl cursor-pointer transition-all hover:bg-surface-variant/10" for="behavior">
+<span class="font-body-lg text-body-lg">Inappropriate Behavior</span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</label>
+</div>
+<div class="reason-chip">
+<input class="hidden" id="harassment" name="report_reason" type="radio"/>
+<label class="flex items-center justify-between p-md border border-outline-variant rounded-xl cursor-pointer transition-all hover:bg-surface-variant/10" for="harassment">
+<span class="font-body-lg text-body-lg">Harassment</span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</label>
+</div>
+<div class="reason-chip">
+<input class="hidden" id="spam" name="report_reason" type="radio"/>
+<label class="flex items-center justify-between p-md border border-outline-variant rounded-xl cursor-pointer transition-all hover:bg-surface-variant/10" for="spam">
+<span class="font-body-lg text-body-lg">Spam / Advertising</span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</label>
+</div>
+<div class="reason-chip">
+<input class="hidden" id="underage" name="report_reason" type="radio"/>
+<label class="flex items-center justify-between p-md border border-outline-variant rounded-xl cursor-pointer transition-all hover:bg-surface-variant/10" for="underage">
+<span class="font-body-lg text-body-lg">Underage User</span>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</label>
+</div>
+</div>
+</section>
+<!-- Section: Additional Details -->
+<section class="mb-xl">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Additional Details</h3>
+<span class="text-[10px] text-outline">OPTIONAL</span>
+</div>
+<textarea class="w-full h-32 bg-surface-container-low border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-xl p-md font-body-md text-on-surface placeholder:text-on-surface-variant/40 resize-none transition-all" placeholder="Please describe what happened in more detail..."></textarea>
+<p class="font-body-md text-[12px] text-on-surface-variant/60 mt-sm leading-snug">
+                Your safety is our priority. This information is confidential and will be used by our safety team to review this profile.
+            </p>
+</section>
+</main>
+<!-- Bottom Actions Container -->
+<footer class="fixed bottom-0 left-0 w-full bg-surface-container/95 backdrop-blur-md p-md safe-area-inset-bottom flex flex-col gap-sm border-t border-outline-variant/10">
+<!-- Primary Action -->
+<button class="w-full h-14 bg-primary-container text-on-primary-container font-title-lg text-title-lg rounded-full flex items-center justify-center gap-base active:scale-95 transition-transform shadow-lg shadow-primary-container/10">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">report</span>
+            Report and Block
+        </button>
+<!-- Secondary Action -->
+<button class="w-full h-12 bg-transparent text-primary font-body-lg text-body-lg rounded-full border border-primary/30 flex items-center justify-center hover:bg-primary/5 active:scale-95 transition-all">
+            Block Only
+        </button>
+</footer>
+<!-- Micro-interaction script -->
+<script>
+        // Simple visual feedback for radio selection
+        document.querySelectorAll('input[name="report_reason"]').forEach(input => {
+            input.addEventListener('change', () => {
+                // Clear all indicators
+                document.querySelectorAll('.reason-chip label span:last-child').forEach(span => {
+                    span.innerText = 'chevron_right';
+                    span.classList.remove('text-primary');
+                });
+                
+                // Set active indicator
+                if(input.checked) {
+                    const icon = input.nextElementSibling.querySelector('span:last-child');
+                    icon.innerText = 'check_circle';
+                    icon.classList.add('text-primary');
+                }
+            });
+        });
+    </script>
+</body></html>
